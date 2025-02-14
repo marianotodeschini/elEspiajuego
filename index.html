@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego el Espía</title>
+    <link rel="stylesheet" href="/elSpy/style.css">
+</head>
+<body>
+    <div id="pantalla-inicial" class="pantalla visible">
+        <h1>Juego el Espía</h1>
+        <img id="logo" src="/elSpy/img/espia.png" alt="Logo del juego">
+        <button onclick="mostrarPantalla('pantalla-juego')">Jugar</button>
+    </div>
+
+    <div id="pantalla-juego" class="pantalla">
+        <h2>Configuración del Juego</h2>
+        <label for="nombre-jugador">Nombre del jugador:</label>
+        <input type="text" id="nombre-jugador">
+        <button onclick="agregarJugador()">Agregar</button>
+
+        <label for="cantidad-espias">Cantidad de espías:</label>
+        <select id="cantidad-espias">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+        <ul id="lista-jugadores"></ul>
+        <button onclick="limpiarLista()">Limpiar Lista</button>
+        <button onclick="iniciarJuego()">Iniciar</button>
+        <button onclick="mostrarPantalla('pantalla-inicial')">Cancelar</button>
+    </div>
+
+    <div id="pantalla-reparto" class="pantalla">
+        <h3 id="mensaje-reparto"></h3>
+        <button id="btn-confirmar" onclick="confirmarJugador()">Confirmar</button>
+        <p id="palabra-secreta" style="display: none;"></p>
+        <button id="btn-siguiente" onclick="siguienteJugador()" style="display: none;">Siguiente jugador</button>
+    </div>
+
+    <div id="pantalla-juego-activo" class="pantalla">
+        <h2>¡A JUGAR!</h2>
+        <p id="temporizador"></p>
+        <button onclick="comenzarVotacion()">Iniciar Votación</button>
+    </div>
+
+    <div id="pantalla-votacion" class="pantalla">
+        <h2>Votación</h2>
+        <h3 id="mensaje-votacion"></h3>
+        <select id="voto-jugador"></select>
+        <button onclick="registrarVoto()">Votar</button>
+    </div>
+
+    <div id="pantalla-resultados" class="pantalla">
+        <h2>Resultados</h2>
+        <p id="resultado-final"></p>
+        <button onclick="mostrarPantalla('pantalla-inicial')">Volver al inicio</button>
+    </div>
+
+    <script src="/elSpy/main.js"></script>
+    <script src="/elSpy/palabras.js"></script>
+</body>
+</html>
+
+
